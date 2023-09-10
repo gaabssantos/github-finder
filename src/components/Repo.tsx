@@ -14,16 +14,12 @@ const Repo = ({
   stargazers_count,
   created_at,
 }: RepoProps) => {
-  const date = created_at.substring(0, 10).replaceAll("-", "/");
-  const dateDay = new Date(date).getDay();
-  const dateMonth = new Date(date).getMonth();
-  const dateYear = new Date(date).getFullYear();
-  const dateComplete =
-    (dateDay < 10 ? "0" + dateDay : dateDay) +
-    "/" +
-    (dateMonth < 10 ? "0" + dateMonth : dateMonth) +
-    "/" +
-    (dateYear < 10 ? "0" + dateYear : dateYear);
+  const dateDay = created_at.substring(8, 10);
+  const dateMonth = created_at.substring(5, 7);
+  const dateYear = created_at.substring(0, 4);
+
+  const dateComplete = dateDay + "/" + dateMonth + "/" + dateYear;
+  
   return (
     <div className={classes.repo}>
       <h3>{name}</h3>

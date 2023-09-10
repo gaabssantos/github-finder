@@ -19,9 +19,8 @@ function User({
     <div className={classes.user}>
       <img src={avatar_url} alt={login} />
       <h2>{login}</h2>
-      <div className={classes.bio}>
-        <span>{bio}</span>
-      </div>
+
+      {bio && <div className={classes.bio}>{bio && <span>{bio}</span>}</div>}
       {location && (
         <p className={classes.location}>
           <MdLocationPin />
